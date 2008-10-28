@@ -1,0 +1,2 @@
+class AssignSecuritiesController < ApplicationController
+end

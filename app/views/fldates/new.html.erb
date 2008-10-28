@@ -1,0 +1,23 @@
+<h1>New fldate</h1>
+
+<% form_for(@fldate) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :cdr %><br />
+    <%= f.text_field :cdr %>
+  </p>
+  <p>
+    <%= f.label :severity %><br />
+    <%= f.text_field :severity %>
+  </p>
+  <p>
+    <%= f.label :f_loss %><br />
+    <%= f.date_select :f_loss %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', fldates_path %>

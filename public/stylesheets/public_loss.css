@@ -1,0 +1,263 @@
+@charset "utf-8";
+body  {
+	font: .78em Verdana, Arial, Helvetica, sans-serif;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	 /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #333;
+}
+
+/* ==================== Basics ====================== */
+h1{
+    font-size:1.2em;
+    margin: 15px 0 5px;    
+	
+}
+h2, h3{
+    font-size:1.2em;
+    margin: 15px 0 5px;    
+}
+
+ul {
+    list-style: none;
+    margin:0 0 15px 0;
+    padding:0;   
+}
+
+.content {
+margin-left:20px;
+}
+
+.center {text-align:center;}
+
+ul {
+    list-style: none;
+    margin:0 0 5px 0;
+    padding:0;
+   
+}
+p {
+margin:0;
+padding:0 0 10px;}
+
+/* ==================== Security Div ====================== */
+
+.security {
+font-size:.95em;
+margin:10px 0 20px;
+padding:0 0 10px 0;
+width:700px;
+border-bottom:4px solid #9AA975;
+}
+
+
+h2.title{
+margin:15px 0 0 0;
+padding:0;
+font-size:1.6em;
+color:#69883A;
+}
+
+table.char {
+color:#333;
+background:#F3F4E9;
+border:1px dotted #69883A;
+border-width:1px 0;
+margin:0 0 20px 0;
+font-size:.95em;
+}
+
+table.char tr td {
+padding:0 50px 5px 5px;
+font-weight:normal
+}
+
+table.char tr td.r {
+color:#333;
+font-weight:bold;
+padding:0 6px 0 10px;
+text-align:right; 
+border-right:1px solid #666;
+}
+
+ul.assumptions {
+color:#666;
+line-height:1.7em;
+text-align:left;
+margin:0;
+border-top: 1px dotted #69883A;
+}
+
+/* ==================== First Loss Table ====================== */
+table.floss {
+margin:5px 0 5px 0;
+font-size:.85em;
+border: 1px solid #333;
+text-align:center;
+}
+
+
+.floss th {
+color:#69883A;
+    background:#EDEFE1;
+	line-height:2em;
+}
+.floss td {
+    width: 7.5em;
+	line-height:4em;
+	border-bottom:1px dotted #ccc;
+}
+
+.floss td.header {
+color:#69883A;
+	background:#EDEFE1;
+    font-weight:bold;
+    text-align:right;
+}
+
+.gray td, .gray th, th.gray {
+color:#fff;
+background:#69883A;
+}
+
+.floss td.vlabel {
+    width: 2em;
+	font-weight:bold;
+	background:#69883A url(../images/floss_table_loss.gif) no-repeat center center;
+}
+
+.floss td.hlabel {
+	background:#69883A url(../images/floss_table_cdr.gif) no-repeat center center;
+}
+
+th.corner {
+	background:#9AA975;
+}
+
+.left {
+	border-left: 1px solid #9AA975;
+}
+
+.bot th {
+	border-bottom: 1px solid #9AA975;
+	}
+
+td.right{
+border-right:1px solid #999;
+width:5em;
+padding-right:3px;}
+
+ h3{
+	color:#69883A;
+    font-size:1.2em;
+    margin: 25px 0 2px;
+}
+
+span.fade {
+color:#666;
+}
+
+/* ==================== instructions ====================== */
+.instructions {
+	line-height:1.6em;
+	font-weight:bold;
+	width:700px;
+	border: 1px dotted #666;
+	border-bottom-width:0;
+	background:#69883A;
+	color:#f5f5f5;
+	padding:8px;
+}
+#search {
+width:700px;
+border: 1px dotted #666;
+border-width:0 1px;
+background:#DEE5D1;
+padding:9px 8px 3px;
+}
+#search ul li {
+display:inline;
+margin-right:10px;
+}
+.nav {
+width:700px;
+height:30px;
+border: 1px dotted #666;
+border-top-width:0;
+background:#DEE5D1;
+padding:8px;
+margin-bottom:25px
+}
+
+.disclosure {
+font-style:italic;
+margin-left:20px;
+width:700px;
+}
+
+
+/* ==================== Navigation ====================== */
+#navbar ul {
+background:#999;
+height:25px;
+margin:-1 0 20px;
+}
+
+#navbar ul li{
+	display:inline;
+	text-decoration:none;
+	list-style: none;
+}
+ #navbar ul li a{
+  font-weight:bold;
+	line-height:25px;
+	color:#fff;
+	margin:0 10px;
+	height:25px;
+	text-decoration:none;
+}
+ #navbar ul li a:hover{
+ text-decoration:underline;}
+
+/* ==================== Login ====================== */
+ul.login {
+width:350px;
+line-height:1.6em;
+background:#FCF9D7;
+border:1px dotted #C2B804;
+padding: 10px;
+margin-bottom:15px;}
+
+ul.login li {
+background::red;
+}
+ul.login li a{
+color:#0000CC;
+text-decoration:none;
+}
+
+ul.login li a:hover{
+color:#0000CC;
+text-decoration:underline;
+}
+
+table.user {
+font-size:90%;
+margin:0 0 20px;
+border:1px solid #666;
+}
+table.user th{
+color:#fff;
+background:#666;
+}
+
+table.user th, table.user td{
+padding:3px;
+}
+div.user{
+width:700px;
+border: 1px dotted #666;
+background:#f5f5f5;
+padding:10px;
+margin-bottom:20px;
+}

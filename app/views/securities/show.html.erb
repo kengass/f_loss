@@ -1,0 +1,58 @@
+<p>
+  <b>Cusip:</b>
+  <%=h @security.cusip %>
+</p>
+
+<p>
+  <b>Fund:</b>
+  <%=h @security.fund %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @security.date %>
+</p>
+
+<p>
+  <b>Moodys:</b>
+  <%=h @security.moodys %>
+</p>
+
+<p>
+  <b>S p:</b>
+  <%=h @security.s_p %>
+</p>
+
+<p>
+  <b>Fitch:</b>
+  <%=h @security.fitch %>
+</p>
+
+<p>
+  <b>Ce orig:</b>
+  <%=h @security.ce_orig %>
+</p>
+
+<p>
+  <b>Ce cur:</b>
+  <%=h @security.ce_cur %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @security.title %>
+</p>
+
+<p>
+  <b>Qtr cdr:</b>
+  <%=h @security.qtr_cdr %>
+</p>
+
+<p>
+  <b>Qtr severity:</b>
+  <%=h @security.qtr_severity %>
+</p>
+
+
+<%= link_to 'Edit', edit_security_path(@security) %> |
+<%= link_to 'Back', securities_path %>

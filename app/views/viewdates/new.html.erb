@@ -1,0 +1,17 @@
+<div class="user">
+<h1>New viewdate</h1>
+
+<% form_for(@viewdate) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :vdate %><br />
+    <%= f.date_select :vdate %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', viewdates_path %>
+</div>

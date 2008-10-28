@@ -1,0 +1,17 @@
+<div class="user">
+<h1>Listing viewdates</h1>
+<p>There should only ever be one viewdate, please do not destroy. The destroy link is only there in case an additional vdate is accidentally added. </p>
+<table class="user">
+  <tr>
+    <th>Vdate</th>
+  </tr>
+
+<% for viewdate in @viewdates %>
+  <tr>
+    <td><%=h viewdate.vdate %></td>
+    <td><%= link_to 'Edit', edit_viewdate_path(viewdate) %></td>
+    <td><%= link_to 'Destroy', viewdate, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

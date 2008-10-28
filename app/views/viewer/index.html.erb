@@ -1,0 +1,109 @@
+<%#=@results.inspect%>
+ <div class="instructions">
+   Welcome to the Shay securities report page. Use the drop down menus below to select either a single security or view every security in a fund. 
+ </div>
+ <div id="search">
+   <ul>
+     <li><b>SEARCH</b></li>
+    <li>by Cusip: <%= text_field_with_auto_complete :security, :cusip, {}, {:method => :get}%>
+    </li>
+  </ul>
+ </div>
+<div class="nav">
+
+<ul id="MenuBar1" class="MenuBarHorizontal">
+  <li class="header"><b>SELECT</b></li>  
+  <li><a class="MenuBarItemSubmenu" href="#">by Cusip</a>
+      <ul>
+       <% @titles.each do |t| %>
+        <li><a href="?id=<%=t.id%>"><%=t.cusip%></a></li>
+        <%end%>
+      </ul>
+  </li>
+  <li class="divider">or</li>
+  <li><a class="MenuBarItemSubmenu" href="#">by Fund</a>
+      <ul>
+        <% @funds.each do |k,f| %>
+        <li><a href="?fund=<%=k%>"><%=k%> - <%=f%></a></li>
+        <%end%>
+        
+      </ul>
+  </li>
+</ul>
+<script type="text/javascript">
+<!--
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"stylesheets/SpryMenuBarDownHover.gif", imgRight:"stylesheets/SpryMenuBarRightHover.gif"});
+//-->
+</script>
+</div>   
+<%=@pagetitle%>
+
+ <%if @results %>
+<%#=@results.inspect%>
+    <%@results.each do |res|%>
+    <div class="security">
+      <h2 class="title"><%=res['sec'].title%></h2>
+    
+    <h3>Characteristics</h3>  
+      <table class="char">
+      <tr>
+        <td class="r">CUSIP</td><td> <%=res['sec'].cusip%></td>
+        <td class="r">Moody's Rating</td><td><%=res['sec'].moodys%></td>
+        <td class="r">Original CE</td><td><%=res['sec'].ce_orig%></td>
+    </tr>
+    <tr>
+        <td class="r">Fund</td><td><%=res['sec'].fund.upcase%></td>
+        <td class="r">S&amp;P Rating</td><td><%=res['sec'].s_p%></td>
+        <td class="r">Current CE</td><td><%=res['sec'].ce_cur%></td>
+    </tr>
+    <tr>
+        <td class="r">Date</td><td><%=res['sec'].date%></td>
+        <td class="r">Fitch Rating</td><td><%=res['sec'].fitch%></td>
+        <td></td>
+    </tr>
+    <tr>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+        <td class="r" colspan="2">30, 60, 90 Delinquency</td><td><%=res['sec'].delinq_30_60_90%></td>        
+         <td class="r">Forclosure/Reo</td><td><%=res['sec'].forclosure_reo%></td>        
+    </tr>
+  </table>
+    <%=link_to "Click here for the #{Date::MONTHNAMES[@vdate.mon]} remittance reports for full details of credit performance
+    ", "http://www.amffunds.com/html/remittance.php"%>
+    <% c=0%>    
+    <table class="floss" cellpadding="0" cellspacing="0">
+      <h3>Date of First Loss</h3> 
+      <tr class="gray"><th class="corner" colspan="2" rowspan="2"></th><th class="hlabel top" colspan="<%=res["cdrs"].size %>">CDR</th></tr>
+      <tr class="bot">
+      <%res["cdrs"].each do |cd| %>
+        <th><%=cd%>%</th>
+      <% end %>
+    </tr>  
+      <% res["sevs"].each do |sv| %>
+        <tr>
+          <% if c==0%> 
+                <td  class="vlabel left" rowspan="<%=res["sevs"].size+1 %>"></td>
+          <%end%>
+          <td class="header right"><%=  sv %>%</td>
+          <% res["cdrs"].each do |c1| %>
+            <% t=res["fldates"].shift %>
+            <td><%= t.f_loss ? t.f_loss.strftime("%b %Y") : "<span class=\"fade\">none</td>" %></td>
+          <% end %>
+        </tr>
+        <%c+=1%>
+      <% end %>
+    </table>    
+    <h3>Modeling Assumptions</h3>
+    <ul class="assumptions">
+      <li><%=res['sec'].cpr%>%  CPR = Static 6 month actual collateral speed for life</li>
+      <li>Intex CDR definition is the unscheduled balance decline due to liquidated loans</li>
+      <li>100% Servicer P&I advance</li>
+      <li>CDR is an annualized number, conversion to single month default rate is (per Intex)</li>
+      <li>9 month servicer advance</li>
+      <li>MDR = [1 - (1 -CDR/100) ^ (1/12)] * 100</li>
+    </ul>
+    </div>
+   <%end%>
+   <%end%>
+

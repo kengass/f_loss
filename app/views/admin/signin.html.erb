@@ -1,0 +1,21 @@
+<html>
+  <head>
+  <title>Please sign in</title>
+    </head>
+    <body>
+    <% form_for :admin, :url => {:action => "signin" } do |f| %>
+      <%= f.error_messages %>
+
+      <p>
+        <label for="username">Username</label><br />
+        <%= f.text_field :username %><br />
+        <label for="password">Password</label><br />
+        <%= f.text_field :password %><br />              
+      </p>
+      <p>
+        <%= f.submit "Create" %>
+      </p>
+    <% end %>
+
+    </body>
+</html>

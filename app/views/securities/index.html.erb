@@ -1,0 +1,40 @@
+<h1>Listing securities</h1>
+
+<table>
+  <tr>
+    <th>Cusip</th>
+    <th>Fund</th>
+    <th>Date</th>
+    <th>Moodys</th>
+    <th>S p</th>
+    <th>Fitch</th>
+    <th>Ce orig</th>
+    <th>Ce cur</th>
+    <th>Title</th>
+    <th>Qtr cdr</th>
+    <th>Qtr severity</th>
+  </tr>
+
+<% for security in @securities %>
+  <tr>
+    <td><%=h security.cusip %></td>
+    <td><%=h security.fund %></td>
+    <td><%=h security.date %></td>
+    <td><%=h security.moodys %></td>
+    <td><%=h security.s_p %></td>
+    <td><%=h security.fitch %></td>
+    <td><%=h security.ce_orig %></td>
+    <td><%=h security.ce_cur %></td>
+    <td><%=h security.title %></td>
+    <td><%=h security.qtr_cdr %></td>
+    <td><%=h security.qtr_severity %></td>
+    <td><%= link_to 'Show', security %></td>
+    <td><%= link_to 'Edit', edit_security_path(security) %></td>
+    <td><%= link_to 'Destroy', security, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New security', new_security_path %>

@@ -1,0 +1,22 @@
+<div class="instructions">
+  <h1>Change Display date</h1>
+
+  Intext reporst are run after the 25th of the month. Any securities with a date after the 23rd will represent the current month. 
+</div>
+<div class="user">
+<% form_for(@viewdate) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    Display Date<br />
+    <%= f.date_select :vdate ,:order => [:month, :year] %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @viewdate %> |
+<%= link_to 'Back', viewdates_path %>
+
+</div>

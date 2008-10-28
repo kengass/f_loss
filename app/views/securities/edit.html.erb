@@ -1,0 +1,56 @@
+<h1>Editing security</h1>
+
+<% form_for(@security) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :cusip %><br />
+    <%= f.text_field :cusip %>
+  </p>
+  <p>
+    <%= f.label :fund %><br />
+    <%= f.text_field :fund %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+  <p>
+    <%= f.label :moodys %><br />
+    <%= f.text_field :moodys %>
+  </p>
+  <p>
+    <%= f.label :s_p %><br />
+    <%= f.text_field :s_p %>
+  </p>
+  <p>
+    <%= f.label :fitch %><br />
+    <%= f.text_field :fitch %>
+  </p>
+  <p>
+    <%= f.label :ce_orig %><br />
+    <%= f.text_field :ce_orig %>
+  </p>
+  <p>
+    <%= f.label :ce_cur %><br />
+    <%= f.text_field :ce_cur %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :qtr_cdr %><br />
+    <%= f.text_field :qtr_cdr %>
+  </p>
+  <p>
+    <%= f.label :qtr_severity %><br />
+    <%= f.text_field :qtr_severity %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @security %> |
+<%= link_to 'Back', securities_path %>

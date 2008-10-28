@@ -1,0 +1,76 @@
+
+ <%if @results %>
+<%#=@results.inspect%>
+    <%@results.each do |res|%>
+
+    <div>
+      <ul>
+        <li><h2><%=res['sec'].title%></h2></li>
+        <li>CUSIP: <%=res['sec'].cusip%></li>
+        <li>Fund: <%=res['sec'].fund.upcase%><li>
+        <li>Date: <%=res['sec'].date%><li>
+    </ul>
+    <h3>Ratings</h3>
+    <ul>
+      <li>Moody's: <%=res['sec'].moodys%></li>
+       <li>S&amp;P: <%=res['sec'].s_p%></li>
+      <li>Fitch: <%=res['sec'].fitch%></li>
+    </ul>
+
+    <ul>
+      <li>Original CE: <%=res['sec'].ce_orig%></li>
+      <li>Current CE: <%=res['sec'].ce_cur%></li>
+    </ul>
+
+    <%=link_to "Click here for the August 2008 remittance reports for full details of credit performance
+    ", "http://www.amffunds.com/html/remittance.php"%>
+    </div>
+    <% c=0%>
+
+    <table class="floss" cellpadding="0" cellspacing="0">
+      <caption class="center">Date of First Loss</caption>  
+      <tr class="gray"><th class="corner" colspan="2" rowspan="2"></th><th class="hlabel top" colspan="<%=res['cdr'].size %>">CDR</th></tr>
+      <tr class="bot">
+
+      <% res['cdr'].each do |cd| %>
+        <th><%=cd%>%</th>
+      <% end %>
+    </tr>  
+      <% res['sev'].each do |sv| %>
+        <tr>
+          <% if c==0%> 
+                <td  class="vlabel left" rowspan="<%=res['sev'].size+1 %>"></td>
+          <%end%>
+          <td class="header right"><%=  sv %>%</td>
+          <% res['cdr'].each do |c1| %>
+            <td><%=  res['rdata'][sv][c1]? res['rdata'][sv][c1].strftime("%b-%y") : "none" %></td>
+          <% end %>
+
+        </tr>
+        <%c+=1%>
+      <% end %>
+
+    </table>
+    <h3>Modeling Assumptions</h3>
+    <table class="assumptions">
+    <tr>
+      <td><%=res['sec'].cpr%>% CPR = Static 6 month actual collateral speed for life
+    </td>
+      <td>Intex CDR definition is the unscheduled balance decline due to liquidated loans
+    </td>  
+    </tr>
+    <tr>
+      <td>100% Servicer P&I advance
+    </td>
+      <td>CDR is an annualized number, conversion to single month default rate is (per Intex):
+    </td>  
+    </tr>
+    <tr>
+      <td>9 month servicer advance
+    </td>
+      <td>MDR = [1 - (1 -CDR/100) ^ (1/12)] * 100
+    </td>  
+    </tr>
+    </table>
+   <%end%>
+   <%end%>

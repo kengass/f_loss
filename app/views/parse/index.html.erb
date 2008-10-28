@@ -1,0 +1,27 @@
+<div class="instructions">
+  The securities listed below each fund available to be enterred into the database. Uncheck any file you dont want loaded. Files already in database will be overwritten.
+</div>
+<div class="nav">Once Scanned files will be moved to the archive folder @ <i>public/intext/archive/(fund)</i>.</div>
+<% form_tag( { :action => :parse_it, }, { :method => :post }) do %>
+  <%  @list.each do |key,value| %>
+  <h2><%=@funds[key] %></h2>
+  <ul>
+    <% if @list[key].empty? %>
+      <li><i>[None]</i></li>
+    <%else%>  
+      <%c=1%> 
+      <% @list[key].each do |v| %>
+        <%  name = key+c.to_s%>
+        <li><%= check_box_tag name,v,true%><%=v%>
+            <% if  @exist.include?(v.chomp(".xls").chop)%>
+              <span class="alert">[File in database]</span>
+            <%end#if exist%>
+        </li>
+        <%c+=1%>
+      <%end #each @list[key]%>
+    <%end#if else%>
+</ul>
+<%end#each @list%>
+    <input type="submit" value="Load Files"/>
+<%end#form%>
+

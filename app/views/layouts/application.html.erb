@@ -1,0 +1,163 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>AMF Securities Analysis</TITLE>
+<META NAME="KEYWORDS" CONTENT="Shay Assets Management, Shay, fund performance, institutional funds,MSB fund, IICAF Fund, news articles, mutual funds">
+<META NAME="DESCRIPTION" CONTENT="View past & present articles featuring Shay Assets Management, Inc. and its mutual funds.">
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+<!--
+
+if(window.event + "" == "undefined") event = null;
+function HM_f_PopUp(){return false};
+function HM_f_PopDown(){return false};
+popUp = HM_f_PopUp;
+popDown = HM_f_PopDown;
+
+//-->
+</SCRIPT>
+<%= stylesheet_link_tag 'public_loss' %>
+<%= stylesheet_link_tag 'SpryMenuBarHorizontal' %>
+
+<%= javascript_include_tag :defaults  %>
+<%= javascript_include_tag 'SpryMenuBar'  %>
+
+
+<%= active_scaffold_includes %>
+
+<SCRIPT LANGUAGE="JavaScript1.2" TYPE="text/javascript">
+<!--
+
+HM_PG_MenuWidth = 150;
+HM_PG_FontFamily = "Verdana,Arial,sans-serif";
+HM_PG_FontSize = 8.4;
+HM_PG_FontBold = 0;
+HM_PG_FontItalic = 0;
+HM_PG_FontColor = "#999999";
+HM_PG_FontColorOver = "#336600";
+HM_PG_BGColor = "#FFFFFF";
+HM_PG_BGColorOver = "#DDDDDD";
+HM_PG_ItemPadding = 1;
+
+HM_PG_BorderWidth = 1;
+HM_PG_BorderColor = "#336600";
+HM_PG_BorderStyle = "solid";
+HM_PG_SeparatorSize = 0;
+HM_PG_SeparatorColor = "#DDDDDD";
+
+HM_PG_ImageSrc = "../images/HM_More_black_right.gif";
+HM_PG_ImageSrcLeft = "../images/HM_More_black_left.gif";
+HM_PG_ImageSrcOver = "../images/HM_More_white_right.gif";
+HM_PG_ImageSrcLeftOver = "../images/HM_More_white_left.gif";
+
+HM_PG_ImageSize = 5;
+HM_PG_ImageHorizSpace = 0;
+HM_PG_ImageVertSpace = 0;
+
+HM_PG_KeepHilite = true; 
+HM_PG_ClickStart = 0;
+HM_PG_ClickKill = false;
+HM_PG_ChildOverlap = 1;
+HM_PG_ChildOffset = 0;
+HM_PG_ChildPerCentOver = null;
+HM_PG_TopSecondsVisible = .5;
+HM_PG_StatusDisplayBuild =0;
+HM_PG_StatusDisplayLink = 1;
+HM_PG_UponDisplay = null;
+HM_PG_UponHide = null;
+HM_PG_RightToLeft = 0;
+
+HM_PG_CreateTopOnly = 0;
+HM_PG_ShowLinkCursor = 1;
+HM_PG_NSFontOver = true;
+
+//HM_a_TreesToBuild = [2];
+
+
+//-->
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR=#FFFFFF marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" alink="003300" vlink="003300" link="003300">
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="003300">
+	<TR>
+		<TD COLSPAN=5 bgcolor="003300"><%=image_tag("spacer.gif", :size =>"433x6")%></TD>
+		<TD width="100%" bgcolor="003300"><%=image_tag("spacer.gif", :size =>"145x6")%></TD>
+		<TD COLSPAN=2 bgcolor="003300"><%=image_tag("spacer.gif", :size =>"202x6")%></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 ROWSPAN=2><%=image_tag("AMF1.gif", :size =>"363x37")%></TD>
+		<TD COLSPAN=2 ROWSPAN=2 bgcolor="003300"><%=image_tag("spacer.gif", :size =>"189x50")%></TD>
+		<TD ROWSPAN=2 width="100%" bgcolor="003300"><%=image_tag("spacer.gif", :size =>"145x50")%></TD>
+		<TD></TD>
+		<TD></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 bgcolor="003300"><%=image_tag("spacer.gif", :size =>"202x26")%></TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=8 background="../images/white.gif"><%=image_tag("spacer.gif", :size =>"780x1")%></TD>
+	</TR>
+	</TABLE> 
+        
+             <% if logged_in? and current_user.has_role?('administrator') %>
+               <div id="navbar">
+                   <ul>
+                     <li><%= link_to "Public Page", {:controller => 'viewer'}%></li>
+                     <li><%= link_to "Upload File", {:controller => 'parse'}%></li>
+                     <li><%= link_to "Change Display Date", {:controller => 'viewdates',:action=>'edit',:id=>'1'}%></li>       
+                     <li><%= link_to "Securities Admin", {:controller => 'securities'}%></li>
+                     <li><%= link_to "First Loss Dates Admin", {:controller => 'fldates'}%></li>
+
+
+                     <li><%= link_to "User List", {:controller => 'users', :action => 'index'}%></li>       
+                   </ul>
+                 </div>
+                <%else%>
+              <div id="navbar">
+               <ul>
+                    <li><a href="www.amffunds.com"><< Back to Amffunds main site</a></li>
+                   </ul>
+                </div>                 
+                <%end%>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+		<TD><%=image_tag("spacer.gif", :size =>"27x24")%></TD>
+		<TD><%=image_tag("floss_header.gif", :size =>"315x24")%></TD>
+		<TD><%=image_tag("spacer.gif", :size =>"486x24")%></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3><%=image_tag("spacer.gif", :size =>"780x12")%></TD>
+
+	</TR>
+</TABLE>
+<div class="content">
+ <% if logged_in? %>
+<ul class="login">
+    <li>Logged in as: <b><%= current_user.login.capitalize%></b> <%= link_to '[Log Out]', logout_url %></li>
+    <% if current_user.has_role?('administrator') %>    
+      <li>Current view date: <b><%=@vdate%></b> <%= link_to '[Change Date]', :controller=> "viewdates" %></li>
+    <% end %>   
+    </ul>
+    
+    <% end %>   
+<%= yield %>
+</div>
+<div class="disclosure">
+  FOR AMF SHAREHOLDER USE ONLY. This report is derived using information generally available to the public from Bloomberg L.P. and Intex Solutions, Inc. Intex provides deal cashflow models, analytics and structuring software for securities. For more information on Intex visit www.Intex.com. While this source is believed to be reliable, the AMF Fund makes no representation that it is accurate or complete. The material contained herein is provided for informational purposes only, and does not constitute an offer or solicitation to buy or sell any security.
+</div>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 width="100%">
+	<TR>
+		<TD><BR><BR><%=image_tag("spacer.gif", :size =>"433x15")%></TD>
+
+		<TD width="100%"><%=image_tag("spacer.gif", :size =>"145x15")%></TD>
+
+		<TD><%=image_tag("copyright.gif", :size =>"202x15")%></TD>
+
+	</TR>
+</TABLE>
+</BODY>
+
+</HTML>

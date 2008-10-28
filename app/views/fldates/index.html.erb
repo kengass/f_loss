@@ -1,0 +1,24 @@
+<h1>Listing fldates</h1>
+
+<table>
+  <tr>
+    <th>Cdr</th>
+    <th>Severity</th>
+    <th>F loss</th>
+  </tr>
+
+<% for fldate in @fldates %>
+  <tr>
+    <td><%=h fldate.cdr %></td>
+    <td><%=h fldate.severity %></td>
+    <td><%=h fldate.f_loss %></td>
+    <td><%= link_to 'Show', fldate %></td>
+    <td><%= link_to 'Edit', edit_fldate_path(fldate) %></td>
+    <td><%= link_to 'Destroy', fldate, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New fldate', new_fldate_path %>

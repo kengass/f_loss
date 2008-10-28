@@ -1,0 +1,11 @@
+<div class="user"><h2>Login with User ID and Password:</h2>
+<p>To recieve a password or for assistance logging in please call shareholder services at: (800) 982-1846.</p><br/>
+<% form_tag session_path do %>
+<p><label for="login">Login</label><br/>
+<%= text_field_tag 'login' %></p><br/>
+<p><label for="password">Password</label><br />
+<%= password_field_tag 'password' %></p>
+ 
+<p><%= submit_tag 'Log in' %></p>
+<% end %>
+</div>
